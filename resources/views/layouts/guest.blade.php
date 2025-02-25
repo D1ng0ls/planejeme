@@ -14,7 +14,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @vite(['resources/css/global/default.css'])
+        <link href="https://github.com/D1ng0ls/planejeme/blob/main/resources/css/global/default.css" rel="stylesheet" crossorigin="anonymous">
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-900">

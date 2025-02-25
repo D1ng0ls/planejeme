@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" type="x-icon" href="logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    @vite(['resources/css/global/default.css'])
+    <link href="https://github.com/D1ng0ls/planejeme/blob/main/resources/css/global/default.css" rel="stylesheet" crossorigin="anonymous">
     <title>PlanejeMe!</title>
 </head>
 <body class="d-flex bg-dark w-100 justify-center justify-content-center align-items-center" style="height:100vh;overflow:hidden">
