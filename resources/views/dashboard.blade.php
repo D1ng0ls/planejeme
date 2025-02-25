@@ -18,7 +18,7 @@
                     @foreach ($tarefasPorStatus['a_fazer'] as $tarefa)
                         <div class="bg-gray-700 p-4 rounded-lg mb-4 tarefa" data-id="{{ $tarefa->id }}">
                             <h3 class="font-semibold">{{ $tarefa->titulo }}</h3>
-                            <p class="text-truncate">{{ $tarefa->descricao }}</p>
+                            <p class="text-truncate text-wrap">{{ $tarefa->descricao }}</p>
                             <p class="text-sm text-gray-400">Prazo: {{ \Carbon\Carbon::parse($tarefa->prazo)->format('d/m/Y') }}</p>
                             <p class="text-sm text-gray-400">Autor: {{ $tarefa->usuario->nome}}</p>
                             @if ($tarefa->responsavel->nome != $tarefa->usuario->nome)
@@ -48,7 +48,7 @@
                     @foreach ($tarefasPorStatus['em_progresso'] as $tarefa)
                         <div class="bg-gray-700 p-4 rounded-lg mb-4 tarefa" data-id="{{ $tarefa->id }}">
                             <h3 class="font-semibold">{{ $tarefa->titulo }}</h3>
-                            <p class="text-truncate">{{ $tarefa->descricao }}</p>
+                            <p class="text-truncate text-wrap">{{ $tarefa->descricao }}</p>
                             <p class="text-sm text-gray-400">Prazo: {{ \Carbon\Carbon::parse($tarefa->prazo)->format('d/m/Y') }}</p>
                             <p class="text-sm text-gray-400">Autor: {{ $tarefa->usuario->nome}}</p>
                             @if ($tarefa->responsavel->nome != $tarefa->usuario->nome)
@@ -78,7 +78,7 @@
                     @foreach ($tarefasPorStatus['concluidas'] as $tarefa)
                         <div class="bg-gray-700 p-4 rounded-lg mb-4 tarefa" data-id="{{ $tarefa->id }}">
                             <h3 class="font-semibold">{{ $tarefa->titulo }}</h3>
-                            <p>{{ $tarefa->descricao }}</p>
+                            <p class="text-truncate text-wrap">{{ $tarefa->descricao }}</p>
                             <p class="text-sm text-gray-400">Prazo: {{ \Carbon\Carbon::parse($tarefa->prazo)->format('d/m/Y') }}</p>
                             <p class="text-sm text-gray-400">Autor: {{ $tarefa->usuario->nome}}</p>
                             @if ($tarefa->responsavel->nome != $tarefa->usuario->nome)
