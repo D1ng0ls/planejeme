@@ -18,9 +18,12 @@
                     @foreach ($tarefasPorStatus['a_fazer'] as $tarefa)
                         <div class="bg-gray-700 p-4 rounded-lg mb-4 tarefa" data-id="{{ $tarefa->id }}">
                             <h3 class="font-semibold">{{ $tarefa->titulo }}</h3>
-                            <p>{{ $tarefa->descricao }}</p>
-                            <p class="text-sm text-gray-400">Prazo: {{ $tarefa->prazo }}</p>
-                            <p class="text-sm text-gray-400">Responsável: {{ $tarefa->responsavel->nome}}</p>
+                            <p class="text-truncate">{{ $tarefa->descricao }}</p>
+                            <p class="text-sm text-gray-400">Prazo: {{ \Carbon\Carbon::parse($tarefa->prazo)->format('d/m/Y') }}</p>
+                            <p class="text-sm text-gray-400">Autor: {{ $tarefa->usuario->nome}}</p>
+                            @if ($tarefa->responsavel->nome != $tarefa->usuario->nome)
+                                <p class="text-sm text-gray-400">Responsável: {{ $tarefa->responsavel->nome}}</p>
+                            @endif
                             <div class="actions pt-4 d-flex flex-row justify-content-evenly">
                                 <a href="edit?id={{ $tarefa->id }}" class="btn btn-primary" title="Editar tarefa"><i class="bi bi-pencil"></i></a>
                                 <a href="{{ route('tarefas.destroy', $tarefa->id) }}" class="btn btn-danger" title="Excluir tarefa"><i class="bi bi-trash"></i></a>
@@ -45,9 +48,12 @@
                     @foreach ($tarefasPorStatus['em_progresso'] as $tarefa)
                         <div class="bg-gray-700 p-4 rounded-lg mb-4 tarefa" data-id="{{ $tarefa->id }}">
                             <h3 class="font-semibold">{{ $tarefa->titulo }}</h3>
-                            <p>{{ $tarefa->descricao }}</p>
-                            <p class="text-sm text-gray-400">Prazo: {{ $tarefa->prazo }}</p>
-                            <p class="text-sm text-gray-400">Responsável: {{ $tarefa->responsavel->nome}}</p>
+                            <p class="text-truncate">{{ $tarefa->descricao }}</p>
+                            <p class="text-sm text-gray-400">Prazo: {{ \Carbon\Carbon::parse($tarefa->prazo)->format('d/m/Y') }}</p>
+                            <p class="text-sm text-gray-400">Autor: {{ $tarefa->usuario->nome}}</p>
+                            @if ($tarefa->responsavel->nome != $tarefa->usuario->nome)
+                                <p class="text-sm text-gray-400">Responsável: {{ $tarefa->responsavel->nome}}</p>
+                            @endif
                             <div class="actions pt-4 d-flex flex-row justify-content-evenly">
                                 <a href="edit?id={{ $tarefa->id }}" class="btn btn-primary" title="Editar tarefa"><i class="bi bi-pencil"></i></a>
                                 <a href="{{ route('tarefas.destroy', $tarefa->id) }}" class="btn btn-danger" title="Excluir tarefa"><i class="bi bi-trash"></i></a>
@@ -73,8 +79,11 @@
                         <div class="bg-gray-700 p-4 rounded-lg mb-4 tarefa" data-id="{{ $tarefa->id }}">
                             <h3 class="font-semibold">{{ $tarefa->titulo }}</h3>
                             <p>{{ $tarefa->descricao }}</p>
-                            <p class="text-sm text-gray-400">Prazo: {{ $tarefa->prazo }}</p>
-                            <p class="text-sm text-gray-400">Responsável: {{ $tarefa->responsavel->nome}}</p>
+                            <p class="text-sm text-gray-400">Prazo: {{ \Carbon\Carbon::parse($tarefa->prazo)->format('d/m/Y') }}</p>
+                            <p class="text-sm text-gray-400">Autor: {{ $tarefa->usuario->nome}}</p>
+                            @if ($tarefa->responsavel->nome != $tarefa->usuario->nome)
+                                <p class="text-sm text-gray-400">Responsável: {{ $tarefa->responsavel->nome}}</p>
+                            @endif
                             <div class="actions pt-4 d-flex flex-row justify-content-evenly">
                                 <a href="edit?id={{ $tarefa->id }}" class="btn btn-primary" title="Editar tarefa"><i class="bi bi-pencil"></i></a>
                                 <a href="{{ route('tarefas.destroy', $tarefa->id) }}" onclick="return confirm('Tem certeza que deseja excluir esta tarefa?');" class="btn btn-danger" title="Excluir tarefa"><i class="bi bi-trash"></i></a>
